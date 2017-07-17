@@ -1,28 +1,31 @@
 # HelloWorld
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+Steps to evaluate [tide]() in emacs with angular/typescript project
 
-## Development server
+1. Clone this repository
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+        git clone https://github.com/perveziqbal/angular-tide-demo.git
 
-## Code scaffolding
+2. Install npm packages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+        cd angular-tide-demo
+        npm install
 
-## Build
+3. Open emacs
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+        emacs -Q -l tide-emacs.el
 
-## Running unit tests
+4. Make sure you edit the tsserver.js
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Replace the following line
 
-## Running end-to-end tests
+    var diagnostics = selector(project, file);
+with
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+    var diagnostics = selector(project, file) || [];
 
-## Further help
+4. Open src/app/hello/hello.component.html
+5. If needed install typescript's latest stable version globally
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+        npm uninstall -g typescript
+        npm install -g typescript
